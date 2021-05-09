@@ -1,9 +1,14 @@
-<h1 align="center">Prueva Tecnica</h1>
+## Prueva Tecnica
 
 ## 🛠️
 
 _Meteor | TypeScript | React | Material-UI_
 
-## Back-End contruido con 🛠️
+## 🔧
 
-_Express Gateway | PostgreSQL_
+_npm install_
+
+## ⚙️
+
+_meteor_
+
