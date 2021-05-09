@@ -7,7 +7,7 @@ export function App() {
 
 	const [Section, setSection] = React.useState<string>("DocMovi");
 
-	const changeSection = (value: string) => {
+	const changeSection = (value: string) : void=> {
         setSection(value);
     };
 
@@ -18,7 +18,7 @@ export function App() {
 			<BarApp onclick={changeSection}/>
 
 			{  
-			   Section === "addDr" ? <AddDr/> 
+			  Section === "addDr" ? <AddDr/> 
 
 			  : Section === "View" ? <ViewAll/> 
 			  

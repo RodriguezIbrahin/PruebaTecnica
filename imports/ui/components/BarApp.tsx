@@ -37,8 +37,8 @@ export default function BarApp({ onclick }: { onclick: any }) {
 				</Button>
 
 			    <div className={classes.title}>
-				    <Button className={classes.buttonTitle} color="inherit" onClick={() => onclick("DocMovi")}>
-					    DocMovi
+				    <Button className={classes.buttonTitle} color="inherit" onClick={() => onclick("Home")}>
+					    Home
 				    </Button>
 			    </div>
 

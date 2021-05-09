@@ -2,7 +2,7 @@ import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { DoctorCollection } from '../../api/Doctors';
 import View from "./View";
-import { Grid, Avatar, Typography } from "@material-ui/core"
+import { Grid, Avatar, Typography, TextField } from "@material-ui/core"
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import GroupIcon from '@material-ui/icons/Group';
 
@@ -49,16 +49,33 @@ const ViewAll = () => {
 
 			</Grid>
 
-            {Alldoctor.map(doctor => 
-                <View
-                   _id={doctor._id} 
-                   name={doctor.name} 
-                   maternal_surname={doctor.maternal_surname} 
-                   paternal_surname={doctor.paternal_surname} 
-                   rut={doctor.rut}
-                   especialidad={doctor.especialidad}
-               />
-            )}
+            {!Alldoctor.length ?
+                    
+                <Grid item xs={2}>
+
+                    <TextField
+                        id="Sin Doctor"
+                        value="Ups, parece que no hay medicos"
+                        margin="normal"
+                        disabled
+                        fullWidth
+                        helperText="Pruebe agregando algunos.."
+                    /> 
+                    
+                </Grid>
+                    
+                :Alldoctor.map(doctor => 
+
+                    <View
+                        _id={doctor._id} 
+                        name={doctor.name} 
+                        maternal_surname={doctor.maternal_surname} 
+                        paternal_surname={doctor.paternal_surname} 
+                        rut={doctor.rut}
+                        especialidad={doctor.especialidad}
+                    />
+                )
+            }
 
         </Grid>
     );
