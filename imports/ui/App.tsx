@@ -5,7 +5,7 @@ import ViewAll from "./components/ViewAll";
 
 export function App() {
 
-	const [Section, setSection] = React.useState<string>("DocMovi");
+	const [Section, setSection] = React.useState<string>("Home");
 
 	const changeSection = (value: string) : void=> {
         setSection(value);
