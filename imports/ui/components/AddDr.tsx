@@ -17,11 +17,11 @@ interface StateAlerts {
 };
 
 const InitialState: Doctor ={
-	name: null,
-	maternal_surname: null,
-	paternal_surname: null,
-	rut: null,
-	especialidad: null
+	name: "",
+	maternal_surname: "",
+	paternal_surname: "",
+	rut: "",
+	especialidad: ""
 }
 
 const useStyles = makeStyles((theme: Theme) => createStyles ({

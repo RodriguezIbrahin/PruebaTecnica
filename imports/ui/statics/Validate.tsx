@@ -15,21 +15,21 @@ export const Especialidades: Especialidad[] = EspecialidadesMedicas;
 
 export interface Doctor {
 	_id?: string;
-	name: string | null;
-	maternal_surname: string | null;
-	paternal_surname: string | null;
-	rut: string | null;
-	especialidad: string | null;
+	name: string;
+	maternal_surname: string;
+	paternal_surname: string;
+	rut: string;
+	especialidad: string;
 };
 
 export const Validate = (value : Doctor ) : Doctor => {
 
 	let err: Doctor ={
-		name: null,
-		maternal_surname: null,
-		paternal_surname: null,
-		rut: null,
-		especialidad: null
+		name: "",
+		maternal_surname: "",
+		paternal_surname: "",
+		rut: "",
+		especialidad: ""
 	};
 
 	if (!value.name) {

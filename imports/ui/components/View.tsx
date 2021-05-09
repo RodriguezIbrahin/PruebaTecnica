@@ -30,7 +30,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
 
     const [thisDoctor, setThisDoctor] = React.useState<Doctor>({_id, name, maternal_surname, paternal_surname, rut, especialidad});
     
-    const [errors, setErrors] = React.useState<Doctor>({name: null, maternal_surname: null, paternal_surname: null, rut: null,especialidad: null});
+    const [errors, setErrors] = React.useState<Doctor>({name: "", maternal_surname: "", paternal_surname: "", rut: "",especialidad: ""});
     
     const [editing, setEditing] = React.useState<boolean>(true);
 
@@ -59,7 +59,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
                         maternal_surname: thisDoctor.maternal_surname,
                         paternal_surname: thisDoctor.paternal_surname,
                         especialidad: thisDoctor.especialidad,
-                        rut: format(String(thisDoctor.rut)),
+                        rut: format(thisDoctor.rut),
                     }
                 });
 
@@ -91,12 +91,12 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
 
 	return (
 
-        <Grid className={classes.root} container direction="row" justify="space-evenly" alignItems="center" xs={8}>
+        <Grid item className={classes.root} container direction="row" justify="space-evenly" alignItems="center" xs={8}>
             
             <Grid item xs={1}>
 
                 <TextField
-                    id={thisDoctor._id}
+                    id={thisDoctor.name}
                     label="Doctor"
                     value={thisDoctor.name}
                     margin="normal"
@@ -112,7 +112,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
             <Grid item xs={1}>
 
                 <TextField
-                    id={thisDoctor._id}
+                    id={thisDoctor.maternal_surname}
                     label=" "
                     value={thisDoctor.maternal_surname}
                     margin="normal"
@@ -128,7 +128,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
             <Grid item xs={1}>
 
                 <TextField
-                    id={thisDoctor._id} 
+                    id={thisDoctor.paternal_surname} 
                     label=" "
                     value={thisDoctor.paternal_surname}
                     margin="normal"
@@ -144,7 +144,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
             <Grid item xs={4}>
 
                 <TextField
-				    id="especialidad"
+				    id={thisDoctor.especialidad}
                     select
                     margin="normal"
                     label="Especialidad"
@@ -171,7 +171,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
             <Grid item xs={2}>
 
                 <TextField
-                    id={thisDoctor._id}
+                    id={thisDoctor.rut}
                     label="RUT"
                     value={thisDoctor.rut}
                     margin="normal"
