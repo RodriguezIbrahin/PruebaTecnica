@@ -1,20 +1,18 @@
 import React, { FC } from 'react';
-import { Doctor, Validate } from "../statics/Validate";
+import { Doctor, Validate, Especialidades } from "../statics/Validate";
 import { TextField, Grid, IconButton } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 import { DoctorCollection } from '../../api/Doctors';
-import EspecialidadesMedicas from "../statics/EspecialidadesMedicas.json";
 import CustomizedSnackbars from "./Alerts";
+import { format } from 'rut.js'
 
 interface StateAlerts {
     success?: boolean,
     error?: boolean,
 };
-
-let Especialidades: any[] = EspecialidadesMedicas;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -26,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, especialidad }) => {
+const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, especialidad}) => {
 
     const classes = useStyles();
 
@@ -61,7 +59,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
                         maternal_surname: thisDoctor.maternal_surname,
                         paternal_surname: thisDoctor.paternal_surname,
                         especialidad: thisDoctor.especialidad,
-                        rut: thisDoctor.rut,
+                        rut: format(String(thisDoctor.rut)),
                     }
                 });
 
@@ -88,7 +86,7 @@ const View: FC<Doctor> = ({_id, name, maternal_surname, paternal_surname, rut, e
         setThisDoctor({
             ...thisDoctor,
             [prop]: e.target.value
-       }); 	
+        }); 	
    };
 
 	return (

@@ -6,12 +6,10 @@ import {
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import ClearIcon from '@material-ui/icons/Clear';
-import EspecialidadesMedicas from "../statics/EspecialidadesMedicas.json";
-import { Validate, Doctor } from "../statics/Validate";
+import { Validate, Doctor, Especialidades } from "../statics/Validate";
 import { DoctorCollection } from '../../api/Doctors';
 import CustomizedSnackbars from "./Alerts";
-
-let Especialidades: any[] = EspecialidadesMedicas;
+import { format } from 'rut.js'
 
 interface StateAlerts {
     success?: boolean,
@@ -85,7 +83,7 @@ export default function AddDr() {
         if(!errors.name && !errors.maternal_surname && !errors.paternal_surname && !errors.rut && !errors.especialidad 
             && Dr.name && Dr.maternal_surname && Dr.paternal_surname && Dr.rut && Dr.especialidad
         ){
-            DoctorCollection.insert(Dr);
+            DoctorCollection.insert({...Dr, rut: format(Dr.rut) });
             setAlerts({success: true, error: false});
             setDr({
                 name: "",

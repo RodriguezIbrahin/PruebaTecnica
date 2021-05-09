@@ -1,4 +1,17 @@
 import { validate } from 'rut.js';
+import EspecialidadesMedicas from "./EspecialidadesMedicas.json";
+
+export interface Especialidad {
+	nombre: string;
+	_id?: string;
+	_rev?: string;
+	estado?: string;
+	clasificacion?: string;
+	db?: string;
+	prestaciones?: any
+};
+
+export const Especialidades: Especialidad[] = EspecialidadesMedicas;
 
 export interface Doctor {
 	_id?: string;
